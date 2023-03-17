@@ -1,0 +1,25 @@
+version: "3.2"
+
+services:
+  radio:
+    build: ./build
+      #network_mode: "host"
+    hostname: radio
+    network_mode: "host"
+    #networks:
+    #  frontend:
+    #  backend:
+    #    # you may set custom IP addresses
+    #    ipv4_address: 172.30.0.4
+
+      #    ports:
+      #      - "8800:8888"
+      #      - "6006:6006"
+    volumes:
+      - ./data:/radio
+    #restart: always
+    environment:
+      DISPLAY: ${DISPLAY}
+      JUPYTER_PORT: ${JUPYTER_PORT}
+      TZ: ${TZ}
+        #QT_X11_NO_MITSHM: 1
